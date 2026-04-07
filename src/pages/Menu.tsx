@@ -4,6 +4,7 @@ import { IonPage, IonSplitPane, IonMenu, IonHeader, IonToolbar, IonTitle, IonCon
 import { Redirect, Route } from "react-router";
 import { homeOutline, informationCircleOutline, logOutOutline } from "ionicons/icons";
 import Home from "./Home";
+import About from "./About";
 
 
 
@@ -43,9 +44,10 @@ const Menu:React.FC = () => {
                {/* Routing */}
                <IonRouterOutlet id="main">
                     <Route exact path="/app/home" component={Home} />
-                    <Route exact path="/app" >
-                        <Redirect to="/app/home"/>
+                     <Route exact path="/app" >                 
+                        <Redirect to="/app/home"/>         
                     </Route>
+                    <Route exact path="/app/about" component={About} />
                     
                </IonRouterOutlet>
             </IonSplitPane>
