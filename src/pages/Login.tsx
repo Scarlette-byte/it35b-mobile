@@ -8,6 +8,14 @@ const Login:React.FC = () => {
 
     const doLogin = () => {
         navigation.push('/app', 'forward', 'replace');
+     const signInWithGoogle = aync () =>{
+        await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options:{
+                redirectTo: '${window.location.origin}/app'
+            }
+        })
+     }
     }
     return(
         <IonPage>
@@ -21,7 +29,7 @@ const Login:React.FC = () => {
             </IonHeader>
 
             <IonContent fullscreen>
-                <IonButton expand="full" onClick={() => doLogin()}>
+                <IonButton expand="full" onClick={signInWithGoogle} fill="outline">
                     Login
                 </IonButton>
             </IonContent>
